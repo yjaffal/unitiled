@@ -1,4 +1,5 @@
-# UniTiled
+# UniTiled (0.9)
+This version is backward compatible with Unity 2018.x releases
 UniTiled is a Unity addon that allows you to import Tiled maps without any third party software. Current features:
    - Compatible with Unity 2018.x
    - Imports maps and tile sets
