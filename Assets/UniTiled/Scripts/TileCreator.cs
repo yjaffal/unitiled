@@ -100,7 +100,6 @@ public class TileCreator : MonoBehaviour
 
         captureCamTrans = captureCamObj.transform;
         captureCamTrans.eulerAngles = new Vector3(90.0f, 0, 0);
-        
 
         captureCam = captureCamObj.AddComponent<Camera>();
         captureCam.clearFlags = CameraClearFlags.Color;
@@ -117,7 +116,6 @@ public class TileCreator : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
             return;
         }
-        
 
         prevCam = prevCamObj.GetComponent<Camera>();
         if(prevCam == null)
@@ -198,9 +196,9 @@ public class TileCreator : MonoBehaviour
                 {
                     Directory.CreateDirectory(atlasesFullPath);
                 }
-                Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName + ".prefab");
-
-                PrefabUtility.ReplacePrefab(gameObject, prefab, ReplacePrefabOptions.ConnectToPrefab);
+                //Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName + ".prefab");
+                //PrefabUtility.ReplacePrefab(gameObject, prefab, ReplacePrefabOptions.ConnectToPrefab);
+                PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, "Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName + ".prefab", InteractionMode.AutomatedAction);
 
                 Debug.Log("Your tile collection was saved as " + atlasesFullPath + "/" + collectionName + ".prefab");
             }
