@@ -198,9 +198,9 @@ public class TileCreator : MonoBehaviour
                 {
                     Directory.CreateDirectory(atlasesFullPath);
                 }
-                Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName + ".prefab");
-
-                PrefabUtility.ReplacePrefab(gameObject, prefab, ReplacePrefabOptions.ConnectToPrefab);
+                //Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName + ".prefab");
+                //PrefabUtility.ReplacePrefab(gameObject, prefab, ReplacePrefabOptions.ConnectToPrefab);
+                PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, "Assets/Resources/" + ATLASES_FOLDER + "/" + collectionName, InteractionMode.AutomatedAction);
 
                 Debug.Log("Your tile collection was saved as " + atlasesFullPath + "/" + collectionName + ".prefab");
             }
