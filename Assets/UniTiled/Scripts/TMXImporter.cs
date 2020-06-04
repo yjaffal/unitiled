@@ -248,7 +248,7 @@ public class TMXImporter : ScriptedImporter
 
                         if (flipDiag)
                         {
-                            tileObject.transform.Rotate(0, 0, 90);
+                            tileObject.transform.Rotate(0, 0, flipY? (flipX? -90 : 90) : -90);
                             tileObject.transform.localScale = new Vector3(1, -1, 1);
                         }
                         sr.flipX = flipX;
