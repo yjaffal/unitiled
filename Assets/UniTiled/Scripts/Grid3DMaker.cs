@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 
 /// <summary>
-/// Sorts 3D models in a grid formart to prepate them for
+/// Sorts 3D models in a grid format to prepare them for
 /// sprite snapshots -- runs in edit mode. All 3D models must
 /// be added as children to the object holding this script
 /// </summary>
 [ExecuteInEditMode]
 public class Grid3DMaker : MonoBehaviour
 {
-
     /// <summary>
     /// Scale of the largest possible tile
     /// </summary>
@@ -58,7 +57,6 @@ public class Grid3DMaker : MonoBehaviour
             DestroyImmediate(Camera.main.gameObject);
         }
 
-
         GameObject prevCam = GameObject.Find("Tile Preview Cam");
         if (prevCam == null)
         {
@@ -81,7 +79,6 @@ public class Grid3DMaker : MonoBehaviour
     /// </summary>
     private void RefreshGrid()
     {
-
         int cols = (int)Mathf.Sqrt(transform.childCount);
         int col = 0;
         Vector3 pos = Vector3.zero;
@@ -102,12 +99,11 @@ public class Grid3DMaker : MonoBehaviour
     }
 
     /// <summary>
-    /// Recalculates the center point of the models based on 
+    /// Recalculates the center point of the models based on
     /// their settings in the attached Tile3D script and its geometry
     /// </summary>
     private bool FixPivots()
     {
-
         List<Transform> newParents = new List<Transform>();
         List<Transform> newChildren = new List<Transform>();
         List<Transform> processLater = new List<Transform>();
@@ -164,10 +160,8 @@ public class Grid3DMaker : MonoBehaviour
             DestroyImmediate(child.gameObject);
         }
 
-
         if (newParents.Count > 0)
         {
-
             for (int i = 0; i < newParents.Count; i++)
             {
                 newChildren[i].parent = newParents[i];
@@ -184,7 +178,6 @@ public class Grid3DMaker : MonoBehaviour
         {
             float minX = float.MaxValue, minZ = float.MaxValue, minY = float.MaxValue;
             float maxX = float.MinValue, maxZ = float.MinValue, maxY = float.MinValue;
-
 
             Transform parentTransform = transform.GetChild(child);
             parentTransform.localScale = Vector3.one;
@@ -315,10 +308,8 @@ public class Grid3DMaker : MonoBehaviour
             Vector3[] shifts = allShifts[child];
             Tile3D tileScript = parentTransform.GetComponent<Tile3D>();
 
-
             for (int i = 0; i < parentTransform.childCount; i++)
             {
-
                 Transform trans = parentTransform.GetChild(i);
                 trans.Translate(-shapeCenter);
                 trans.Translate(shifts[i]);
@@ -369,5 +360,4 @@ public class Grid3DMaker : MonoBehaviour
             Debug.DrawLine(start, start = start + new Vector3(0.0f, 0.0f, maxDiff));
         }
     }
-
 }

@@ -4,9 +4,9 @@ using System.Xml;
 [System.Serializable]
 public class TiledTileSetEntry
 {
-    [System.Xml.Serialization.XmlAttribute("firstgid")]
+    [XmlAttribute("firstgid")]
     public int firstGID { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("source")]
+    [XmlAttribute("source")]
     public string source { get; set; }
 }

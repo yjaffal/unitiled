@@ -1,4 +1,4 @@
-﻿#if (UNITY_EDITOR) 
+﻿#if (UNITY_EDITOR)
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
@@ -13,14 +13,13 @@ using System.Xml;
 [RequireComponent(typeof(Grid3DMaker))]
 public class TileCreator : MonoBehaviour
 {
-
     /// <summary>
-    /// Default folder for 2D tiles generated from 3D tiles 
+    /// Default folder for 2D tiles generated from 3D tiles
     /// </summary>
     public const string TILES_FOLDER = "Genrated2DTiles";
 
     /// <summary>
-    /// Default folder for 3D tile atlases 
+    /// Default folder for 3D tile atlases
     /// </summary>
     public const string ATLASES_FOLDER = "3DTilesAtlases";
 
@@ -35,7 +34,7 @@ public class TileCreator : MonoBehaviour
     public string collectionName;
 
     /// <summary>
-    /// Color to use for transparency. This will be replaced 
+    /// Color to use for transparency. This will be replaced
     /// by alpha in the final tile image
     /// </summary>
     public Color transparentColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
@@ -85,13 +84,12 @@ public class TileCreator : MonoBehaviour
     /// </summary>
     List<string> generatedPaths;
 
-    
     /// <summary>
     /// Starts by (1) finding "TileGenerationCam" and set its properties
     /// to match tile generation setting specified in the variables
     /// of this script, (2) refreshing the attached Grid3DMaker script to
     /// make sure all models are ready for tile generation, and (3) set orthogonal
-    /// size of tile capturing camera to match the size of the 3D tiles as 
+    /// size of tile capturing camera to match the size of the 3D tiles as
     /// specified in the attached Grid3DMaker
     /// </summary>
     void Start()
@@ -105,7 +103,7 @@ public class TileCreator : MonoBehaviour
         captureCam.clearFlags = CameraClearFlags.Color;
         captureCam.backgroundColor = transparentColor;
         Grid3DMaker gMaker = GetComponent<Grid3DMaker>();
-        
+
         captureCam.orthographicSize = Mathf.Min(gMaker.tileSize.x, gMaker.tileSize.z) * gMaker.maxDiff * 0.5f;
         captureCam.orthographic = true;
 
@@ -136,7 +134,6 @@ public class TileCreator : MonoBehaviour
         if(Directory.Exists(tilesPath)){
             Directory.Delete(tilesPath, true);
         }
-        
     }
 
     /// <summary>
@@ -255,7 +252,6 @@ public class TileCreator : MonoBehaviour
             }
         }
 
-
         currentTile = current.GetComponent<Tile3D>();
 
         string fullPath;
@@ -334,7 +330,6 @@ public class TileCreator : MonoBehaviour
                 GUI.TextField(new Rect(2, 2, 35, 20), currentTile.height.ToString("F2"));
             }
         }
-
 
     }
 
@@ -569,7 +564,6 @@ public class TileCreator : MonoBehaviour
         {
             Debug.LogError("Error while generatin tmx file");
         }
-
 
     }
 }

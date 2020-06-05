@@ -4,9 +4,9 @@ using System.Xml;
 [System.Serializable]
 public class TiledFrame
 {
-    [System.Xml.Serialization.XmlAttribute("tileid")]
+    [XmlAttribute("tileid")]
     public int tileID { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("duration")]
+    [XmlAttribute("duration")]
     public int duration { set; get; }
 }

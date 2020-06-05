@@ -6,7 +6,6 @@ using UnityEditor;
 
 public class SpriteImporter2D : AssetPostprocessor
 {
-
     private void OnPreprocessTexture()
     {
         if (!EditorScriptsController.enableSpriteImporter2D)
@@ -32,7 +31,7 @@ public class SpriteImporter2D : AssetPostprocessor
             texSettings.spriteMode = (int)SpriteImportMode.Multiple;
             TiledTileSetFile tSet = map.tileSets[EditorScriptsController.targetTileset];
             SpriteMetaData[] tiles = new SpriteMetaData[tSet.tileCount];
-            
+
             int row = (tSet.tileCount / tSet.columns) - 1;
             int rows = row;
             int col = 0;
@@ -72,6 +71,4 @@ public class SpriteImporter2D : AssetPostprocessor
         importer.textureType = TextureImporterType.Sprite;
         importer.spritePivot = Vector2.zero;
     }
-
-
 }
