@@ -4,13 +4,13 @@ using System.Xml;
 [System.Serializable]
 public class TiledTile
 {
-    [System.Xml.Serialization.XmlAttribute("id")]
+    [XmlAttribute("id")]
     public int id { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("terrain")]
+    [XmlAttribute("terrain")]
     public string terrain { set; get; }
 
-    [System.Xml.Serialization.XmlElement("image", typeof(TiledImage))]
+    [XmlElement("image", typeof(TiledImage))]
     public TiledImage image { set; get; }
 
     [XmlElement("animation")]

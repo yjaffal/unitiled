@@ -7,7 +7,6 @@ using System.Collections;
 /// </summary>
 public class LayerCustomProperties : MonoBehaviour
 {
-
     /// <summary>
     /// The preset constant y value of layer's position
     /// </summary>

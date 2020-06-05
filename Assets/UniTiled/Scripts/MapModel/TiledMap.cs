@@ -1,41 +1,58 @@
+using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Xml;
 
 [System.Serializable]
-[System.Xml.Serialization.XmlRoot("map")]
+[XmlRoot("map")]
 public class TiledMap
 {
-
-    [System.Xml.Serialization.XmlAttribute("version")]
+    [XmlAttribute("version")]
     public string version { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("orientation")]
-    public string oriantation { get; set; }
+    [XmlAttribute("tiledversion")]
+    public string tiledVersion { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("renderorder")]
+    [XmlAttribute("orientation")]
+    public string orientation { get; set; }
+
+    [XmlAttribute("renderorder")]
     public string renderOrder { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("width")]
+    [XmlAttribute("width")]
     public int width { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("height")]
+    [XmlAttribute("height")]
     public int height { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("tilewidth")]
+    [XmlAttribute("tilewidth")]
     public int tileWidth { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("tileheight")]
+    [XmlAttribute("tileheight")]
     public int tileHeight { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("nextobjectid")]
+    [XmlAttribute("infinite")]
+	[DefaultValue(0)]
+    public int infinite { get; set; }
+
+    [XmlAttribute("backgroundcolor")]
+	[DefaultValue("")]
+    public string backgroundColor { get; set; }
+
+    [XmlAttribute("nextlayerid")]
+    public int nextLayerID { get; set; }
+
+    [XmlAttribute("nextobjectid")]
     public int nextObjectID { get; set; }
 
     [XmlElement("tileset")]
     public TiledTileSetEntry[] tileSetEntries { get; set; }
+
+    [XmlArray("properties")]
+    [XmlArrayItem("property", typeof(TiledCustomProperty))]
+    public TiledCustomProperty[] customProperties { get; set; }
 
     public TiledTileSetFile[] tileSets { get; set; }
 
     [XmlElement("layer")]
     public TiledLayer[] layers { get; set; }
 }
-

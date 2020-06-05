@@ -11,11 +11,10 @@ using System;
 //[RequireComponent(typeof(TMXImporter))]
 public class RealTimeMapReader : MonoBehaviour
 {
-
     /// <summary>
     /// Reference to the attached TMXImporter
     /// </summary>
-   // TMXImporter importer;
+    // TMXImporter importer;
 
     /// <summary>
     /// Reference to the attached TileModelMapper

@@ -4,9 +4,9 @@ using System.Xml;
 [System.Serializable]
 public class TiledLayerData
 {
-    [System.Xml.Serialization.XmlAttribute("encoding")]
+    [XmlAttribute("encoding")]
     public string encoding { set; get; }
 
-    [System.Xml.Serialization.XmlText]
+    [XmlText]
     public string Value { set; get; }
 }
