@@ -33,6 +33,5 @@ public class GridGeneratorEditor : Editor
             }
             gridMaker.Refresh();
         }
-
     }
 }

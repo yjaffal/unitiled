@@ -1,4 +1,4 @@
-﻿#if (UNITY_EDITOR) 
+﻿#if (UNITY_EDITOR)
 using UnityEngine;
 using UnityEditor.Experimental.AssetImporters;
 using UnityEditor;
@@ -58,11 +58,9 @@ public class TMXImporter : ScriptedImporter
         GameObject rootObject = new GameObject(preferredName);
         rootTransform = rootObject.transform;
 
-
         try
         {
             ReloadMap(ctx.assetPath);
-
 
             if (build3DModel)
             {
@@ -97,7 +95,6 @@ public class TMXImporter : ScriptedImporter
                 Debug.LogWarning("Error while importing TMX file. See previous message for details...");
             }
         }
-
     }
 
     public Transform RootTransform
@@ -151,7 +148,7 @@ public class TMXImporter : ScriptedImporter
             for (int i = 0; i < map.tileSetEntries.Length; i++)
             {
                 string tileSetFile = map.tileSetEntries[i].source;
-                
+
                 List<string> mapFolderParts = new List<string>(mapFolder.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
                 List<string> tileSetFileParts = new List<string>(tileSetFile.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
                 string pathStart = tileSetFileParts[0];
@@ -166,7 +163,6 @@ public class TMXImporter : ScriptedImporter
                     string.Join("/", mapFolderParts.ToArray()),
                     string.Join("/", tileSetFileParts.ToArray())
                         });
-                
 
                 using (XmlTextReader reader = new XmlTextReader(tileSetPath))
                 {
@@ -215,7 +211,6 @@ public class TMXImporter : ScriptedImporter
 
             string[] layerData = layer.data.Value.Trim().Split(ROW_SEPARATOR,
                                     System.StringSplitOptions.RemoveEmptyEntries);
-
 
             for (int i = 0; i < h; i++)
             {
@@ -322,7 +317,7 @@ public class TMXImporter : ScriptedImporter
                                     float height = obj.height / ppu;
                                     center.x += width / 2.0f;
                                     center.y -= height / 2.0f;
-                                    
+
                                     if (Mathf.Abs(width - height) < 0.1f)
                                     {
                                         col = tileObject.AddComponent<CircleCollider2D>();
@@ -374,7 +369,6 @@ public class TMXImporter : ScriptedImporter
                                     col = tileObject.AddComponent<PolygonCollider2D>();
                                     ((PolygonCollider2D)col).points = points;
 
-
                                     if (col != null)
                                     {
                                         col.offset += new Vector2(group.offsetX / ppu, -group.offsetY / ppu);
@@ -383,7 +377,6 @@ public class TMXImporter : ScriptedImporter
                             }
                         }
                     }
-
                 }
             }
 
@@ -463,8 +456,8 @@ public class TMXImporter : ScriptedImporter
                                 }
                                 else if (pName.Equals("minrandomdisplacement") || pName.Equals("maxrandomdisplacement"))
                                 {
-                                    float x, y, z;
-                                    Vector3 displacement;
+                                    //float x, y, z;
+                                    //Vector3 displacement;
                                     string[] vals = pValue.Split(',');
                                     if (vals.Length == 3)
                                     {
@@ -488,10 +481,8 @@ public class TMXImporter : ScriptedImporter
     private Sprite GetTile(int tileID, TiledMap map)
     {
 
-
         for (int i = 0; i < map.tileSets.Length; i++)
         {
-
             string tsxFolder =
             tsxOriginalLocations[i].Substring(0, tsxOriginalLocations[i].LastIndexOfAny(FILEPATH_SEPARATORS));
 
@@ -584,7 +575,6 @@ public class TMXImporter : ScriptedImporter
 
                     return (sprites[id]);
                 }
-
             }
         }
 

@@ -4,22 +4,22 @@ using System.Xml;
 [System.Serializable]
 public class TiledTObject
 {
-    [System.Xml.Serialization.XmlAttribute("id")]
+    [XmlAttribute("id")]
     public int id { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("x")]
+    [XmlAttribute("x")]
     public float x { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("y")]
+    [XmlAttribute("y")]
     public float y { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("width")]
+    [XmlAttribute("width")]
     public float width { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("height")]
+    [XmlAttribute("height")]
     public float height { set; get; }
 
-    [System.Xml.Serialization.XmlAttribute("rotation")]
+    [XmlAttribute("rotation")]
     public float rotation { set; get; }
 
     [XmlElement("ellipse")]

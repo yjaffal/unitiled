@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class TiledPolygon
 {
-    [System.Xml.Serialization.XmlAttribute("points")]
+    [XmlAttribute("points")]
     public string points {get; set;}
-    
+
     public Vector2[] GetPoints(){
         string[] vals = points.Split(' ');
         Vector2[] result = new Vector2[vals.Length];

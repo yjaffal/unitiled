@@ -6,7 +6,6 @@ using UnityEditor;
 [CustomEditor(typeof(TileCreator))]
 public class TileCreatorEditor : Editor
 {
-
     private bool isToggleOn;
 
     public override void OnInspectorGUI()
@@ -16,6 +15,5 @@ public class TileCreatorEditor : Editor
 		if(GUILayout.Button("Start Tile Generation")){
 			UnityEditor.EditorApplication.isPlaying = true;
 		}
-        
     }
 }

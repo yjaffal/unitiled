@@ -17,13 +17,13 @@ public class Tile3D : MonoBehaviour
     public bool generateCollider = true;
 
     /// <summary>
-    /// Minimum distance to randomly move the model from its 
+    /// Minimum distance to randomly move the model from its
     /// original position when building the map
     /// </summary>
     public Vector3 minRandomDisplacement = Vector3.zero;
 
     /// <summary>
-    /// Maximum distance to randomly move the model from its 
+    /// Maximum distance to randomly move the model from its
     /// original position when building the map
     /// </summary>
     public Vector3 maxRandomDisplacement = Vector3.zero;
@@ -33,7 +33,6 @@ public class Tile3D : MonoBehaviour
     /// rotations for the model when generating the map
     /// </summary>
     public float randomRotationSnapAngle = 0.0f;
-
 
     /// <summary>
     /// Minimum factor of random scale
@@ -51,7 +50,7 @@ public class Tile3D : MonoBehaviour
     /// the map.
     /// </summary>
     public int minRandomCopies = 0;
-	
+
 	/// <summary>
     /// Maximum number of additional random copies
     /// of the tile model to create when generating
@@ -64,8 +63,6 @@ public class Tile3D : MonoBehaviour
     /// </summary>
     [HideInInspector]
     public float height;
-
-
 }
 
 /// <summary>

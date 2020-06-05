@@ -1,30 +1,49 @@
+using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Xml;
 
 [System.Serializable]
-[System.Xml.Serialization.XmlRoot("tileset")]
+[XmlRoot("tileset")]
 public class TiledTileSetFile
 {
-    [System.Xml.Serialization.XmlAttribute("name")]
+    [XmlAttribute("version")]
+    public string version { get; set; }
+
+    [XmlAttribute("tiledversion")]
+    public string tiledVersion { get; set; }
+
+    [XmlAttribute("name")]
     public string name { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("tilewidth")]
+    [XmlAttribute("tilewidth")]
     public int tileWidth { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("tileheight")]
+    [XmlAttribute("tileheight")]
     public int tileHeight { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("tilecount")]
+    [XmlAttribute("tilecount")]
     public int tileCount { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("columns")]
+    [XmlAttribute("columns")]
     public int columns { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("spacing")]
+    [XmlAttribute("backgroundcolor")]
+	[DefaultValue("")]
+    public string backgroundColor { get; set; }
+
+    [XmlAttribute("spacing")]
     public int spacing { get; set; }
 
-    [System.Xml.Serialization.XmlAttribute("margin")]
+    [XmlAttribute("margin")]
     public int margin { get; set; }
+
+    [XmlArray("tileoffset")]
+    [XmlArrayItem("tileoffset", typeof(TiledTileOffset))]
+    public TiledTileOffset[] tileOffset { get; set; }
+
+    [XmlArray("properties")]
+    [XmlArrayItem("property", typeof(TiledCustomProperty))]
+    public TiledCustomProperty[] customProperties { get; set; }
 
     [XmlArray("terraintypes")]
     [XmlArrayItem("terrain", typeof(TiledTerrain))]
