@@ -9,4 +9,8 @@ public class TiledTerrain
 
     [XmlAttribute("tile")]
     public int tile { set; get; }
+
+    [XmlArray("properties")]
+    [XmlArrayItem("property", typeof(TiledProperty))]
+    public TiledProperty[] customProperties { get; set; }
 }
