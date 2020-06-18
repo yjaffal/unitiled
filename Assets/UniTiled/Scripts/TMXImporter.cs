@@ -191,7 +191,7 @@ public class TMXImporter : ScriptedImporter
             layerObject.transform.parent = rootTransform;
             layerObject.isStatic = true;
 
-            TiledCustomProperty[] layerProperties = layer.customProperties;
+            TiledProperty[] layerProperties = layer.customProperties;
 
             if (layerProperties != null && layerProperties.Length > 0)
             {
@@ -243,7 +243,7 @@ public class TMXImporter : ScriptedImporter
 
                         if (flipDiag)
                         {
-                            tileObject.transform.Rotate(0, 0, flipY? (flipX? -90 : 90) : -90);
+                            tileObject.transform.Rotate(0, 0, 90);
                             tileObject.transform.localScale = new Vector3(1, -1, 1);
                         }
                         sr.flipX = flipX;
@@ -456,13 +456,15 @@ public class TMXImporter : ScriptedImporter
                                 }
                                 else if (pName.Equals("minrandomdisplacement") || pName.Equals("maxrandomdisplacement"))
                                 {
-                                    //float x, y, z;
-                                    //Vector3 displacement;
+                                    /*
+                                    float x, y, z;
+                                    Vector3 displacement;
                                     string[] vals = pValue.Split(',');
                                     if (vals.Length == 3)
                                     {
                                         //TODO: continue from here
                                     }
+                                    */
                                 }
                             }
                         }
@@ -472,9 +474,9 @@ public class TMXImporter : ScriptedImporter
         }
     }
 
-    /// <summary>
-    /// Loads the sprite of the provided tile ID from Resources folder
+    /// <summary>    /// Loads the sprite of the provided tile ID from Resources folder
     /// </summary>
+
     /// <returns>Sprite of the tile if found, null otherwise</returns>
     /// <param name="tileID">Id of the tile in the tmx map file</param>
     /// <param name="map">The tmx map deserialization</param>
@@ -619,6 +621,11 @@ public class TMXImporter : ScriptedImporter
     private string FormatPath(string path)
     {
         return path.Replace(FILEPATH_SEPARATORS[0], FILEPATH_SEPARATORS[1]).TrimEnd(FILEPATH_SEPARATORS);
+    }
+
+    private void PostProcessor()
+    {
+
     }
 }
 #endif
