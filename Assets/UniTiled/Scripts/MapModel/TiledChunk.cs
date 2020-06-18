@@ -3,11 +3,8 @@ using System.Xml.Serialization;
 using System.Xml;
 
 [System.Serializable]
-public class TiledObjectGroup : TiledMapLayer
+public class TiledChunk
 {
-    [XmlAttribute("color")]
-    public string color { set; get; }
-
     [XmlAttribute("x")]
     public int x { set; get; }
 
@@ -20,10 +17,9 @@ public class TiledObjectGroup : TiledMapLayer
     [XmlAttribute("height")]
     public int height { set; get; }
 
-    [XmlAttribute("draworder")]
-    [DefaultValue("topdown")]
-    public string drawOrder { set; get; }
+    [XmlElement("tile", typeof(TiledTilelayerTile))]
+    public TiledTilelayerTile[] tiles { set; get; }
 
-    [XmlElement("object")]
-    public TiledTObject[] objects { get; set; }
+    [XmlText]
+    public string Value { set; get; }
 }

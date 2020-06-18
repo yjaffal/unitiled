@@ -3,15 +3,13 @@ using System.Xml.Serialization;
 using System.Xml;
 
 [System.Serializable]
-public class TiledGrid
+public class TiledChunkSize
 {
-    [XmlAttribute("orientation")]
-    [DefaultValue("orthogonal")]
-    public string orientation { get; set; }
-
     [XmlAttribute("width")]
+    [DefaultValue(16)]
     public int width { get; set; }
 
     [XmlAttribute("height")]
+    [DefaultValue(16)]
     public int height { get; set; }
 }
